@@ -16,11 +16,11 @@ jobs:
       - name: Checkout archive
         uses: actions/checkout@v4
 
-      - name: Fetch approved Commerce v0.1 source
+      - name: Fetch approved Commerce v0.2 source
         run: |
           rm -rf /tmp/NeoBrutal-Commerce
           git clone --filter=blob:none https://github.com/NeoBrutalism-shop/NeoBrutal-Commerce.git /tmp/NeoBrutal-Commerce
-          git -C /tmp/NeoBrutal-Commerce checkout 210a2321a442a6ad9126d6f8208ba871f2df5a02
+          git -C /tmp/NeoBrutal-Commerce checkout 432c821b57cbbddfc7e0118c99d43d6fe9a798f2
 
       - name: Publish static runtime to /commerce
         run: |
@@ -29,7 +29,7 @@ jobs:
           cp /tmp/NeoBrutal-Commerce/index.html commerce/
           cp -R /tmp/NeoBrutal-Commerce/src commerce/
           cp -R /tmp/NeoBrutal-Commerce/demo commerce/
-          printf '%s\n' '210a2321a442a6ad9126d6f8208ba871f2df5a02' > commerce/.source-commit
+          printf '%s\n' '432c821b57cbbddfc7e0118c99d43d6fe9a798f2' > commerce/.source-commit
           touch .nojekyll
 
       - name: Commit snapshot
@@ -41,5 +41,5 @@ jobs:
             echo 'Snapshot already current.'
             exit 0
           fi
-          git commit -m 'publish: archive NeoBrutal Commerce v0.1'
+          git commit -m 'publish: archive NeoBrutal Commerce v0.2'
           git push
