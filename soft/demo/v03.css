@@ -1,0 +1,72 @@
+body { overflow-x: hidden; }
+
+.v03-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nbs-space-3);
+  min-height: clamp(4.25rem, 3.8rem + 1vw, 5rem);
+  padding-inline: clamp(1rem, .7rem + 1.3vw, 2rem);
+  border-bottom: var(--nbs-border-width) solid var(--nbs-border);
+  background: color-mix(in srgb, var(--nbs-bg), transparent 5%);
+  backdrop-filter: blur(12px);
+}
+
+.v03-topbar > div { display: flex; align-items: center; gap: var(--nbs-space-3); }
+.v03-main { display: grid; gap: var(--nbs-space-10); padding-block: var(--nbs-space-8) var(--nbs-space-12); }
+.v03-hero { display: grid; gap: var(--nbs-space-4); max-width: 62rem; padding-block: var(--nbs-space-6); }
+.v03-lede { max-width: 48rem; margin: 0; font-size: var(--nbs-text-lg); }
+.v03-kicker { margin: 0 0 .3rem; color: var(--nbs-text-muted); font-family: var(--nbs-font-mono); font-size: var(--nbs-text-xs); font-weight: var(--nbs-weight-bold); letter-spacing: .075em; }
+.v03-xs { font-size: var(--nbs-text-xs); }
+.v03-section { display: grid; gap: var(--nbs-space-4); }
+.v03-section-head { display: flex; align-items: end; justify-content: space-between; gap: var(--nbs-space-3); }
+.v03-search { flex: 1 1 18rem; min-width: min(100%, 16rem); }
+.v03-table-card { padding: 0; overflow: hidden; }
+.v03-table-scroll { overflow: auto; max-height: 30rem; }
+.v03-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nbs-space-5); align-items: start; }
+.v03-scope-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nbs-space-3); }
+.v03-card-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--nbs-space-3); margin-top: var(--nbs-space-4); }
+.v03-stack { display: grid; gap: var(--nbs-space-3); }
+
+.nbs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: start center;
+  padding: clamp(1rem, 8vh, 5rem) 1rem 1rem;
+  background: color-mix(in srgb, var(--nbs-black), transparent 42%);
+  backdrop-filter: blur(5px);
+}
+.nbs-overlay[hidden] { display: none; }
+.nbs-overlay > * { animation: v03-enter var(--nbs-motion-standard) var(--nbs-ease-release); }
+
+.nbs-toast-stack { position: fixed; z-index: 150; right: var(--nbs-space-4); bottom: var(--nbs-space-4); display: grid; gap: var(--nbs-space-2); width: min(24rem, calc(100vw - 2rem)); }
+.v03-toast { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--nbs-space-3); padding: .75rem .85rem; border: var(--nbs-border-width) solid var(--nbs-border); border-radius: var(--nbs-radius-md); background: var(--nbs-surface); box-shadow: 3px 3px 0 var(--nbs-shadow); animation: v03-toast-in var(--nbs-motion-standard) var(--nbs-ease-release); }
+.v03-toast__mark { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border: 1.5px solid var(--nbs-border); border-radius: var(--nbs-radius-pill); background: var(--nbs-success); color: #111; font-weight: var(--nbs-weight-bold); }
+.v03-toast p { margin: 0; font-size: var(--nbs-text-sm); }
+.v03-toast button { appearance: none; border: 0; background: transparent; color: var(--nbs-text-muted); cursor: pointer; font: inherit; }
+
+@keyframes v03-enter { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes v03-toast-in { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+@media (max-width: 900px) {
+  .v03-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .v03-topbar { position: static; align-items: flex-start; flex-direction: column; padding-block: var(--nbs-space-3); }
+  .v03-topbar > div { width: 100%; justify-content: space-between; }
+  .v03-section-head,
+  .v03-card-footer { align-items: flex-start; flex-direction: column; }
+  .v03-scope-grid { grid-template-columns: 1fr; }
+  .nbs-toast-stack { right: 1rem; bottom: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nbs-overlay > *,
+  .v03-toast { animation: none; }
+}

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="NeoBrutal Soft v0.3 advanced workflow test bench." />
+  <title>NeoBrutal Soft v0.3 — Advanced Workflows</title>
+  <link rel="stylesheet" href="../src/index.css" />
+  <link rel="stylesheet" href="./v03.css" />
+</head>
+<body>
+  <header class="v03-topbar">
+    <div>
+      <span class="nbs-badge nbs-badge--primary">SOFT · v0.3</span>
+      <strong>Advanced workflow test bench</strong>
+    </div>
+    <div class="nbs-cluster">
+      <button class="nbs-button nbs-button--sm" id="commandTrigger" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌘</span> Command <span class="nbs-kbd">K</span></button>
+      <button class="nbs-button nbs-button--sm nbs-button--quiet" id="themeToggle" type="button">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="nbs-container v03-main">
+    <section class="v03-hero">
+      <p class="v03-kicker">NEOLICENSER DOGFOOD</p>
+      <h1 class="nbs-heading nbs-heading--display">Complex admin work.<br />Clear physical feedback.</h1>
+      <p class="nbs-muted v03-lede">This slice stress-tests Soft where generic UI kits usually become vague: filtering thousands of licenses, agent permissions, dangerous actions, and reviewable AI changes.</p>
+    </section>
+
+    <section class="v03-section" aria-labelledby="licensesTitle">
+      <div class="v03-section-head">
+        <div><p class="v03-kicker">DATA WORKFLOW</p><h2 class="nbs-heading nbs-heading--2" id="licensesTitle">License operations</h2></div>
+        <span class="nbs-badge nbs-badge--success">12,482 active</span>
+      </div>
+
+      <div class="nbs-filterbar" aria-label="License filters">
+        <label class="nbs-search v03-search"><span class="nbs-search__icon" aria-hidden="true">⌕</span><input class="nbs-input" id="licenseSearch" placeholder="Search key, customer, domain…" aria-label="Search licenses" /></label>
+        <button class="nbs-filter-chip" type="button" aria-pressed="true">Status · Active</button>
+        <button class="nbs-filter-chip" type="button" aria-pressed="false">Product · Rivet Pro</button>
+        <button class="nbs-filter-chip" type="button" aria-pressed="false">Expires · 30 days</button>
+        <button class="nbs-button nbs-button--sm nbs-button--quiet" type="button">+ Filter</button>
+      </div>
+
+      <div class="nbs-bulkbar" id="bulkbar" hidden>
+        <span class="nbs-bulkbar__count"><span id="selectedCount">0</span> licenses selected</span>
+        <div class="nbs-cluster">
+          <button class="nbs-button nbs-button--sm" type="button">Extend</button>
+          <button class="nbs-button nbs-button--sm" type="button">Export</button>
+          <button class="nbs-button nbs-button--sm nbs-button--danger" id="revokeSelected" type="button">Revoke</button>
+        </div>
+      </div>
+
+      <div class="nbs-card v03-table-card">
+        <div class="v03-table-scroll">
+          <table class="nbs-data-table" id="licenseTable">
+            <thead><tr><th class="nbs-data-table__check"><label class="nbs-check"><input id="selectAll" type="checkbox" aria-label="Select all licenses" /><span class="nbs-check__box"></span></label></th><th>License</th><th>Customer</th><th>Domain</th><th>Status</th><th>Activations</th><th class="nbs-data-table__actions">Actions</th></tr></thead>
+            <tbody>
+              <tr data-search="nl-rvt-92 apex studio apex.example.com active"><td><label class="nbs-check"><input class="rowCheck" type="checkbox" aria-label="Select NL-RVT-92" /><span class="nbs-check__box"></span></label></td><td><strong>NL-RVT-••92</strong><br><span class="nbs-muted v03-xs">Rivet Pro</span></td><td>Apex Studio</td><td><code>apex.example.com</code></td><td><span class="nbs-badge nbs-badge--success">Active</span></td><td>2 / 3</td><td class="nbs-data-table__actions"><button class="nbs-button nbs-button--sm nbs-button--quiet">Open</button></td></tr>
+              <tr data-search="nl-rvt-41 northstar labs staging.northstar.dev active"><td><label class="nbs-check"><input class="rowCheck" type="checkbox" aria-label="Select NL-RVT-41" /><span class="nbs-check__box"></span></label></td><td><strong>NL-RVT-••41</strong><br><span class="nbs-muted v03-xs">Rivet Pro</span></td><td>Northstar Labs</td><td><code>staging.northstar.dev</code></td><td><span class="nbs-badge nbs-badge--info">Staging</span></td><td>3 / 3</td><td class="nbs-data-table__actions"><button class="nbs-button nbs-button--sm nbs-button--quiet">Open</button></td></tr>
+              <tr data-search="nl-sft-18 monsoon works portal.monsoon.io expiring"><td><label class="nbs-check"><input class="rowCheck" type="checkbox" aria-label="Select NL-SFT-18" /><span class="nbs-check__box"></span></label></td><td><strong>NL-SFT-••18</strong><br><span class="nbs-muted v03-xs">NeoBrutal Soft</span></td><td>Monsoon Works</td><td><code>portal.monsoon.io</code></td><td><span class="nbs-badge nbs-badge--warning">Expiring</span></td><td>1 / 1</td><td class="nbs-data-table__actions"><button class="nbs-button nbs-button--sm nbs-button--quiet">Open</button></td></tr>
+              <tr data-search="nl-img-07 pixel harbor wp.pixelharbor.com active"><td><label class="nbs-check"><input class="rowCheck" type="checkbox" aria-label="Select NL-IMG-07" /><span class="nbs-check__box"></span></label></td><td><strong>NL-IMG-••07</strong><br><span class="nbs-muted v03-xs">ImageForge</span></td><td>Pixel Harbor</td><td><code>wp.pixelharbor.com</code></td><td><span class="nbs-badge nbs-badge--success">Active</span></td><td>1 / 5</td><td class="nbs-data-table__actions"><button class="nbs-button nbs-button--sm nbs-button--quiet">Open</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="v03-grid" aria-label="Agent authorization and diff">
+      <article class="nbs-card">
+        <div class="nbs-card__header"><div><p class="v03-kicker">AGENT AUTHORIZATION</p><h2 class="nbs-card__title">Give the agent only what it needs</h2></div><span class="nbs-risk nbs-risk--medium">Medium risk</span></div>
+        <p class="nbs-muted">Scopes are visible, understandable, and revocable. Sensitive powers should never hide behind a single “admin access” switch.</p>
+        <div class="v03-scope-grid" id="scopeGrid">
+          <label class="nbs-scope-card"><input type="checkbox" checked /><strong>Read licensing</strong><span class="nbs-scope-card__meta">Products, plans, releases, license status</span><span class="nbs-risk nbs-risk--low">Low</span></label>
+          <label class="nbs-scope-card"><input type="checkbox" checked /><strong>Configure products</strong><span class="nbs-scope-card__meta">Plans, limits, entitlements, release channels</span><span class="nbs-risk nbs-risk--medium">Medium</span></label>
+          <label class="nbs-scope-card"><input type="checkbox" /><strong>Revoke licenses</strong><span class="nbs-scope-card__meta">Invalidate customer entitlements</span><span class="nbs-risk nbs-risk--high">High</span></label>
+          <label class="nbs-scope-card"><input type="checkbox" /><strong>Manage credentials</strong><span class="nbs-scope-card__meta">Create or rotate API credentials</span><span class="nbs-risk nbs-risk--critical">Critical</span></label>
+        </div>
+        <div class="v03-card-footer"><span class="nbs-muted v03-xs"><strong id="scopeCount">2</strong> scopes enabled</span><button class="nbs-button nbs-button--primary" type="button">Save agent access</button></div>
+      </article>
+
+      <article class="nbs-agent-diff">
+        <div class="nbs-agent-diff__head"><div><p class="v03-kicker">AGENT CHANGESET</p><strong>Configure ImageForge Pro</strong><div class="nbs-agent-diff__meta">Plan ID plan_93H · generated from installed capabilities</div></div><span class="nbs-risk nbs-risk--medium">Review</span></div>
+        <div class="nbs-agent-diff__list">
+          <div class="nbs-agent-diff__row" data-change="add"><span class="nbs-agent-diff__symbol">+</span><div><div class="nbs-agent-diff__path">products.imageforge-pro</div><div class="nbs-agent-diff__change">Create annual product and update entitlement.</div></div><span class="nbs-badge nbs-badge--success">Add</span></div>
+          <div class="nbs-agent-diff__row" data-change="modify"><span class="nbs-agent-diff__symbol">~</span><div><div class="nbs-agent-diff__path">plans.imageforge.site_limit</div><div class="nbs-agent-diff__change"><span class="nbs-agent-diff__before">1 site</span> → <span class="nbs-agent-diff__after">3 sites</span></div></div><span class="nbs-badge nbs-badge--warning">Modify</span></div>
+          <div class="nbs-agent-diff__row" data-change="add"><span class="nbs-agent-diff__symbol">+</span><div><div class="nbs-agent-diff__path">storage.r2</div><div class="nbs-agent-diff__change">Attach configured credential reference <code>secret://r2/production</code>.</div></div><span class="nbs-badge nbs-badge--success">Add</span></div>
+          <div class="nbs-agent-diff__row" data-change="modify"><span class="nbs-agent-diff__symbol">~</span><div><div class="nbs-agent-diff__path">commerce.woocommerce.product</div><div class="nbs-agent-diff__change"><span class="nbs-agent-diff__before">unmapped</span> → <span class="nbs-agent-diff__after">#481</span></div></div><span class="nbs-badge nbs-badge--warning">Modify</span></div>
+        </div>
+        <div class="nbs-agent-diff__footer"><span class="nbs-muted v03-xs">0 customers affected · reversible before first issued license</span><div class="nbs-cluster"><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button">Edit plan</button><button class="nbs-button nbs-button--sm nbs-button--primary" id="applyAgentDiff" type="button">Approve & apply</button></div></div>
+      </article>
+    </section>
+
+    <section class="v03-grid" aria-label="Activation and release workflows">
+      <article class="nbs-card">
+        <div class="nbs-card__header"><div><p class="v03-kicker">ACTIVATIONS</p><h2 class="nbs-card__title">Physical domains</h2></div><span class="nbs-badge">2 / 3 used</span></div>
+        <div class="nbs-domain-list">
+          <div class="nbs-domain-row"><span class="nbs-domain-row__host">production.imageforge.com</span><span class="nbs-badge nbs-badge--success">Production</span><span class="nbs-domain-row__meta">Activated Sep 4 · Mumbai</span></div>
+          <div class="nbs-domain-row"><span class="nbs-domain-row__host">client.example.com</span><span class="nbs-badge nbs-badge--success">Production</span><span class="nbs-domain-row__meta">Activated Sep 6 · London</span></div>
+          <div class="nbs-domain-row"><span class="nbs-domain-row__host">staging.imageforge.local</span><span class="nbs-badge nbs-badge--info">Excluded</span><span class="nbs-domain-row__meta">Does not consume a seat</span></div>
+        </div>
+      </article>
+
+      <article class="nbs-card">
+        <div class="nbs-card__header"><div><p class="v03-kicker">RELEASE CHANNELS</p><h2 class="nbs-card__title">Ship without ambiguity</h2></div><button class="nbs-button nbs-button--sm">New release</button></div>
+        <div class="v03-stack">
+          <div class="nbs-release-channel"><span class="nbs-release-channel__mark">S</span><div class="nbs-release-channel__copy"><strong>Stable · 2.7.0</strong><p>100% rollout · signed package · SHA-256 verified</p></div><span class="nbs-badge nbs-badge--success">Live</span></div>
+          <div class="nbs-release-channel"><span class="nbs-release-channel__mark">B</span><div class="nbs-release-channel__copy"><strong>Beta · 2.8.0-beta.3</strong><p>Internal + opted-in teams · 18 installs</p></div><span class="nbs-badge nbs-badge--info">Testing</span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="nbs-overlay" id="commandOverlay" hidden>
+    <section class="nbs-command" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="nbs-command__search"><span aria-hidden="true">⌕</span><input id="commandInput" autocomplete="off" placeholder="Search actions, products, licenses…" aria-label="Search commands" /><span class="nbs-kbd">Esc</span></div>
+      <div class="nbs-command__body" id="commandList" role="listbox">
+        <div class="nbs-command__group"><p class="nbs-command__label">QUICK ACTIONS</p>
+          <button class="nbs-command__item" role="option" aria-selected="true" data-command="Create product"><span class="nbs-command__icon">+</span><span class="nbs-command__copy"><strong>Create product</strong><span>Start a product and license policy</span></span><span class="nbs-kbd">↵</span></button>
+          <button class="nbs-command__item" role="option" aria-selected="false" data-command="Issue license"><span class="nbs-command__icon">◇</span><span class="nbs-command__copy"><strong>Issue license</strong><span>Create a customer entitlement</span></span><span class="nbs-kbd">↵</span></button>
+          <button class="nbs-command__item" role="option" aria-selected="false" data-command="Publish release"><span class="nbs-command__icon">↑</span><span class="nbs-command__copy"><strong>Publish release</strong><span>Package, verify, and roll out</span></span><span class="nbs-kbd">↵</span></button>
+        </div>
+        <div class="nbs-command__group"><p class="nbs-command__label">NAVIGATE</p>
+          <button class="nbs-command__item" role="option" aria-selected="false" data-command="Open Rivet Pro"><span class="nbs-command__icon">R</span><span class="nbs-command__copy"><strong>Rivet Pro</strong><span>6,240 licenses · stable 2.7.0</span></span><span class="nbs-kbd">↵</span></button>
+          <button class="nbs-command__item" role="option" aria-selected="false" data-command="Open agent permissions"><span class="nbs-command__icon">✦</span><span class="nbs-command__copy"><strong>Agent permissions</strong><span>Review scopes and risk levels</span></span><span class="nbs-kbd">↵</span></button>
+        </div>
+        <div class="nbs-command__empty" id="commandEmpty" hidden>No matching commands.</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="nbs-overlay" id="dangerOverlay" hidden>
+    <section class="nbs-confirm nbs-confirm--danger" role="alertdialog" aria-modal="true" aria-labelledby="dangerTitle" aria-describedby="dangerDescription">
+      <div><span class="nbs-risk nbs-risk--critical">Critical action</span><h2 class="nbs-heading nbs-heading--2" id="dangerTitle">Revoke selected licenses?</h2><p class="nbs-muted" id="dangerDescription">Revocation invalidates future validation and update entitlement for the selected licenses. It never deletes customer files.</p></div>
+      <ul class="nbs-confirm__impact"><li><span>!</span><span><strong id="dangerCount">0 licenses</strong> will be revoked immediately.</span></li><li><span>↺</span><span>Existing software keeps running according to its cached grace policy.</span></li><li><span>✓</span><span>An audit event will record the actor, reason, and affected licenses.</span></li></ul>
+      <label class="nbs-field"><span class="nbs-label">Type REVOKE to confirm</span><input class="nbs-input" id="dangerPhrase" autocomplete="off" placeholder="REVOKE" /></label>
+      <div class="nbs-confirm__footer"><button class="nbs-button nbs-button--quiet" id="cancelDanger" type="button">Cancel</button><button class="nbs-button nbs-button--danger" id="confirmDanger" type="button" disabled>Revoke licenses</button></div>
+    </section>
+  </div>
+
+  <div class="nbs-toast-stack" aria-live="polite" aria-atomic="true" id="toastStack"></div>
+  <script src="./v03.js" type="module"></script>
+</body>
+</html>

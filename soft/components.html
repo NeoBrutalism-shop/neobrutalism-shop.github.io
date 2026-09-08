@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="NeoBrutal Soft component explorer — interactive controls, application patterns, data, licensing, billing, agents, and operational UI." />
+  <title>Components — NeoBrutal Soft</title>
+  <link rel="stylesheet" href="./src/index.css" />
+  <link rel="stylesheet" href="./component-explorer.css" />
+</head>
+<body>
+  <a class="cx-skip" href="#content">Skip to components</a>
+
+  <header class="cx-topbar">
+    <a class="cx-brand" href="./" aria-label="Back to NeoBrutal Soft home"><span aria-hidden="true">S</span><div><strong>NeoBrutal Soft</strong><small>Component explorer · v0.7</small></div></a>
+    <div class="cx-top-actions">
+      <button class="nbs-button nbs-button--sm" id="openCommand" type="button">⌘K Components</button>
+      <button class="nbs-button nbs-button--sm nbs-button--quiet" id="themeToggle" type="button">Dark mode</button>
+      <a class="nbs-button nbs-button--sm nbs-button--primary" href="./demo/v07.html">Open NeoLicenser lab</a>
+    </div>
+  </header>
+
+  <div class="cx-layout">
+    <aside class="cx-sidebar" aria-label="Component categories">
+      <label class="cx-search"><span class="nbs-search__icon" aria-hidden="true">⌕</span><input class="nbs-input" id="componentSearch" type="search" placeholder="Find a component…" autocomplete="off" /><kbd>⌘K</kbd></label>
+      <nav class="cx-nav">
+        <a href="#foundations">Foundations</a>
+        <a href="#controls">Controls</a>
+        <a href="#navigation">Navigation</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#overlays">Overlays</a>
+        <a href="#data">Data</a>
+        <a href="#time-files">Time + files</a>
+        <a href="#operations">Operations</a>
+        <a href="#licensing">Licensing</a>
+        <a href="#identity">Identity</a>
+        <a href="#agents">Agents</a>
+        <a href="#application">App shell</a>
+      </nav>
+      <div class="cx-sidebar-note"><span class="nbs-badge nbs-badge--success">Interactive</span><p>Everything here uses the real Soft CSS. No screenshot-only components.</p></div>
+    </aside>
+
+    <main class="cx-main" id="content">
+      <section class="cx-hero">
+        <div><p class="cx-kicker">SOFT v0.7 · COMPONENT EXPLORER</p><h1>Every surface.<br /><span>Every state.</span></h1><p>Browse the complete application language and touch the controls. Soft is designed to be learned by using it, not by staring at a static catalog.</p></div>
+        <div class="cx-hero-stats" aria-label="Explorer coverage"><div><strong>30+</strong><span>systems</span></div><div><strong>2</strong><span>themes</span></div><div><strong>AA</strong><span>browser QA</span></div><div><strong>RTL</strong><span>resilient</span></div></div>
+      </section>
+
+      <section class="cx-section" id="foundations" data-search="foundations surfaces card inset tokens typography color shadow">
+        <div class="cx-section-head"><div><p class="cx-kicker">01 · FOUNDATIONS</p><h2>Surfaces + hierarchy</h2></div><p>Raised objects advertise touch. Inset objects receive content. Static surfaces stay stable.</p></div>
+        <div class="cx-grid cx-grid--3">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Cards</strong><code>.nbs-card</code></div><div class="nbs-card nbs-stack"><span class="nbs-badge nbs-badge--info">Default</span><strong>Operational card</strong><p class="nbs-muted">Warm surface, shallow hard depth.</p></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Interactive card</strong><code>--interactive</code></div><button class="nbs-card nbs-card--interactive cx-card-button" type="button"><strong>Touch this card</strong><span class="nbs-muted">Hover compresses. Press seats it.</span></button></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Inset surface</strong><code>.nbs-inset</code></div><div class="nbs-inset nbs-stack"><strong>secret://r2/production</strong><span class="nbs-muted">Recessed data well</span></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="controls" data-search="button input textarea select checkbox switch radio tabs field form controls">
+        <div class="cx-section-head"><div><p class="cx-kicker">02 · CONTROLS</p><h2>Pressable by default</h2></div><p>Controls compress toward the surface. Keyboard focus stays explicit. Native semantics remain intact.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Buttons</strong><code>.nbs-button</code></div><div class="cx-wrap"><button class="nbs-button" type="button">Default</button><button class="nbs-button nbs-button--primary" type="button">Primary</button><button class="nbs-button nbs-button--success" type="button">Success</button><button class="nbs-button nbs-button--warning" type="button">Warning</button><button class="nbs-button nbs-button--danger" type="button">Danger</button><button class="nbs-button nbs-button--quiet" type="button">Quiet</button></div><div class="cx-wrap"><button class="nbs-button nbs-button--sm" type="button">Small</button><button class="nbs-button" type="button">Default</button><button class="nbs-button nbs-button--lg" type="button">Large</button><button class="nbs-button nbs-button--icon" type="button" aria-label="Favorite">★</button></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Fields</strong><code>.nbs-field</code></div><div class="nbs-stack"><label class="nbs-field"><span class="nbs-label">Workspace</span><input class="nbs-input" value="Northstar Labs" /><span class="nbs-help">Visible to your team.</span></label><label class="nbs-field"><span class="nbs-label">Plan</span><select class="nbs-select"><option>Team</option><option>Agency</option></select></label><label class="nbs-field"><span class="nbs-label">Note</span><textarea class="nbs-textarea" rows="2">Operational context</textarea></label></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Selection</strong><code>check · switch · radio</code></div><div class="nbs-stack"><label class="nbs-check"><input type="checkbox" checked /><span class="nbs-check__box"></span><span class="nbs-check__label">Auto-renew licenses</span></label><label class="nbs-switch"><input type="checkbox" role="switch" checked /><span class="nbs-switch__track"><span class="nbs-switch__thumb"></span></span><span class="nbs-switch__label">Webhook retries</span></label><label class="nbs-radio"><input type="radio" name="channel" checked /><span class="nbs-radio__dot"></span><span><strong>Stable</strong><small>Recommended for production</small></span></label><label class="nbs-radio"><input type="radio" name="channel" /><span class="nbs-radio__dot"></span><span><strong>Beta</strong><small>Early access releases</small></span></label></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Tabs</strong><code>.nbs-tabs</code></div><div class="nbs-tabs" role="tablist" aria-label="License detail tabs"><button class="nbs-tab" role="tab" aria-selected="true" aria-controls="tab-overview" id="tab-overview-trigger">Overview</button><button class="nbs-tab" role="tab" aria-selected="false" aria-controls="tab-activity" id="tab-activity-trigger">Activity</button><button class="nbs-tab" role="tab" aria-selected="false" aria-controls="tab-security" id="tab-security-trigger">Security</button></div><div class="cx-tab-panel" id="tab-overview" role="tabpanel" aria-labelledby="tab-overview-trigger">5 seats · 3 active · renews Sep 12</div><div class="cx-tab-panel" id="tab-activity" role="tabpanel" aria-labelledby="tab-activity-trigger" hidden>Activated on apex.studio 2 minutes ago.</div><div class="cx-tab-panel" id="tab-security" role="tabpanel" aria-labelledby="tab-security-trigger" hidden>Signed downloads · webhook verification enabled.</div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="navigation" data-search="search breadcrumb pagination segmented tooltip command palette combobox navigation discovery">
+        <div class="cx-section-head"><div><p class="cx-kicker">03 · NAVIGATION + DISCOVERY</p><h2>Dense without getting lost</h2></div><p>Search, saved intent, pagination, segmentation, and keyboard-first command workflows.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Search</strong><code>.nbs-search</code></div><label class="nbs-search"><span class="nbs-search__icon">⌕</span><input class="nbs-input" placeholder="Search licenses…" /><span class="nbs-search__shortcut">⌘K</span></label><ul class="nbs-breadcrumb"><li><a href="#">Products</a></li><li><a href="#">ImageForge</a></li><li aria-current="page">Licenses</li></ul></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Segmented + pagination</strong><code>segmented · pagination</code></div><div class="nbs-segmented" role="group" aria-label="View density"><button class="nbs-segmented__item is-active" aria-pressed="true" type="button">Overview</button><button class="nbs-segmented__item" aria-pressed="false" type="button">Usage</button><button class="nbs-segmented__item" aria-pressed="false" type="button">Billing</button></div><div class="nbs-pagination" aria-label="Pagination"><button class="nbs-pagination__item" disabled type="button">←</button><button class="nbs-pagination__item" aria-current="page" type="button">1</button><button class="nbs-pagination__item" type="button">2</button><button class="nbs-pagination__item" type="button">3</button><button class="nbs-pagination__item" type="button">→</button></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Command palette</strong><code>⌘ / Ctrl + K</code></div><p class="nbs-muted">Open the real palette and navigate results with ↑ ↓ Enter Escape.</p><button class="nbs-button nbs-button--primary" id="commandDemo" type="button">Open command palette</button></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Tooltip</strong><code>.nbs-tooltip</code></div><div class="cx-tooltip-demo"><button class="nbs-button nbs-button--icon" id="tooltipButton" aria-describedby="tooltipExample" type="button">?</button><div class="nbs-tooltip" id="tooltipExample" role="tooltip">Activation limits count unique active devices.</div></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="feedback" data-search="toast progress stepper skeleton empty state alert status feedback loading success error">
+        <div class="cx-section-head"><div><p class="cx-kicker">04 · FEEDBACK</p><h2>Show what changed</h2></div><p>Feedback is local, specific, and tied to the action that caused it.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Alerts + badges</strong><code>state</code></div><div class="nbs-stack"><div class="cx-wrap"><span class="nbs-badge nbs-badge--success">Healthy</span><span class="nbs-badge nbs-badge--warning">Review</span><span class="nbs-badge nbs-badge--danger">Failed</span><span class="nbs-badge nbs-badge--info">Info</span></div><div class="nbs-alert nbs-alert--info"><strong>Release staged</strong><span>25% of eligible installs.</span></div></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Progress + stepper</strong><code>progress</code></div><div class="nbs-stack"><div class="nbs-progress" style="--nbs-progress-value:68%" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68"></div><div class="nbs-stepper" style="--nbs-step-count:4"><div class="nbs-step is-complete"><span class="nbs-step__dot">✓</span><span>Upload</span></div><div class="nbs-step is-complete"><span class="nbs-step__dot">✓</span><span>Verify</span></div><div class="nbs-step is-current"><span class="nbs-step__dot">3</span><span>Stage</span></div><div class="nbs-step"><span class="nbs-step__dot">4</span><span>Release</span></div></div></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Skeleton</strong><code>loading</code></div><div class="nbs-stack"><div class="nbs-skeleton nbs-skeleton--title"></div><div class="nbs-skeleton nbs-skeleton--text"></div><div class="nbs-skeleton nbs-skeleton--text" style="width:72%"></div></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Toast + empty</strong><code>result</code></div><button class="nbs-button" id="toastButton" type="button">Show toast</button><div class="nbs-empty-state cx-empty-mini"><div class="nbs-empty-state__inner"><span class="nbs-empty-state__icon">+</span><strong>No webhooks yet</strong><span class="nbs-muted">Create one when you need outbound events.</span></div></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="overlays" data-search="dialog drawer popover menu dropdown overlay destructive modal sheet">
+        <div class="cx-section-head"><div><p class="cx-kicker">05 · OVERLAYS</p><h2>Structural, not floaty</h2></div><p>Overlays appear with clear origin and depth. They do not use decorative hover elevation.</p></div>
+        <div class="cx-grid cx-grid--3">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Dialog</strong><code>.nbs-dialog</code></div><button class="nbs-button nbs-button--primary" id="dialogButton" type="button">Open dialog</button></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Drawer</strong><code>.nbs-drawer</code></div><button class="nbs-button" id="drawerButton" type="button">Open drawer</button></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Menu</strong><code>.nbs-menu</code></div><div class="nbs-menu"><button class="nbs-menu__item" type="button">Duplicate product</button><button class="nbs-menu__item" type="button">View audit log</button><hr class="nbs-menu__separator" /><button class="nbs-menu__item nbs-menu__item--danger" type="button">Archive product</button></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="data" data-search="table data chart bar sparkline meter filter bulk saved view sort columns density visualization">
+        <div class="cx-section-head"><div><p class="cx-kicker">06 · DATA</p><h2>Operational data stays readable</h2></div><p>Tables, saved views, sorting, compact density, and charts are designed for work rather than decoration.</p></div>
+        <div class="cx-grid">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Advanced table</strong><code>saved views · sort · density</code></div><div class="cx-table-tools"><div class="nbs-segmented" role="group" aria-label="Saved views"><button class="nbs-segmented__item is-active" aria-pressed="true" type="button">All</button><button class="nbs-segmented__item" aria-pressed="false" type="button">Renewals</button><button class="nbs-segmented__item" aria-pressed="false" type="button">Attention</button></div><button class="nbs-button nbs-button--sm" type="button">Columns</button></div><div class="cx-table-wrap"><table class="nbs-data-table"><thead><tr><th>Product</th><th>Customer</th><th>Plan</th><th>Renewal</th><th>Status</th></tr></thead><tbody><tr><td><strong>ImageForge</strong></td><td>Apex Studio</td><td>Team 10</td><td>Sep 12</td><td><span class="nbs-badge nbs-badge--success">Healthy</span></td></tr><tr><td><strong>Rivet Pro</strong></td><td>Northstar</td><td>Agency</td><td>Sep 9</td><td><span class="nbs-badge nbs-badge--warning">Review</span></td></tr><tr><td><strong>Soft</strong></td><td>Monsoon Works</td><td>Team 5</td><td>Oct 1</td><td><span class="nbs-badge nbs-badge--success">Healthy</span></td></tr></tbody></table></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Data visualization</strong><code>bar · sparkline · meter</code></div><div class="cx-chart"><div class="cx-chart-head"><div><span class="nbs-muted">ACTIVATIONS</span><strong>4,862</strong></div><span class="nbs-badge nbs-badge--success">+12.4%</span></div><div class="cx-bars" role="img" aria-label="Activations rise across eight periods"><button style="--v:34%" aria-label="Period 1: 34 percent" type="button"></button><button style="--v:46%" aria-label="Period 2: 46 percent" type="button"></button><button style="--v:41%" aria-label="Period 3: 41 percent" type="button"></button><button style="--v:63%" aria-label="Period 4: 63 percent" type="button"></button><button style="--v:58%" aria-label="Period 5: 58 percent" type="button"></button><button style="--v:78%" aria-label="Period 6: 78 percent" type="button"></button><button style="--v:74%" aria-label="Period 7: 74 percent" type="button"></button><button style="--v:92%" aria-label="Period 8: 92 percent" type="button"></button></div><div class="cx-meter" aria-label="Seat usage 8 of 10"><span style="--v:80%"></span></div></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="time-files" data-search="calendar date time timezone schedule upload file release artifact drop checksum">
+        <div class="cx-section-head"><div><p class="cx-kicker">07 · TIME + FILES</p><h2>Scope must be explicit</h2></div><p>Dates show absolute context and timezone. Files expose provenance and verification.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Date + timezone</strong><code>schedule</code></div><div class="nbs-stack"><label class="nbs-field"><span class="nbs-label">Publish time</span><input class="nbs-input" type="datetime-local" value="2026-09-12T09:00" /></label><label class="nbs-field"><span class="nbs-label">Timezone</span><select class="nbs-select"><option>Asia/Kolkata</option><option>UTC</option><option>America/Los_Angeles</option></select></label><div class="nbs-inset"><strong>Sep 12, 2026 · 09:00 IST</strong><span class="nbs-muted">Release window</span></div></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Upload + artifact</strong><code>semantic drag lift</code></div><label class="cx-drop" id="dropZone"><input type="file" id="fileInput" accept=".zip" /><span class="cx-drop-icon">⇧</span><strong id="dropTitle">Drop release ZIP</strong><span class="nbs-muted" id="dropCopy">or click to choose a package</span></label><div class="cx-file-row"><span class="cx-file-mark">ZIP</span><div><strong>imageforge-2.8.0.zip</strong><small>18.4 MB · SHA-256 verified</small></div><span class="nbs-badge nbs-badge--success">Signed</span></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="operations" data-search="webhook batch billing payment invoice commerce rollout operations retry partial failure">
+        <div class="cx-section-head"><div><p class="cx-kicker">08 · OPERATIONS + BILLING</p><h2>Consequences before confirmation</h2></div><p>Money, retries, batches, and release promotion show exactly what will happen before the action commits.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Webhook + retry</strong><code>evidence</code></div><div class="nbs-webhook-row"><span class="nbs-webhook-row__method">POST</span><div class="nbs-webhook-row__body"><strong>payment.failed</strong><code>https://api.example.com/hooks/license</code></div><span class="nbs-badge nbs-badge--danger">500</span></div><button class="nbs-button nbs-button--sm" id="retryWebhook" type="button">Retry delivery</button><p class="nbs-muted" id="retryStatus" role="status">Attempt 3 failed · 682ms</p></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Billing</strong><code>consequence-first</code></div><div class="nbs-billing-summary"><div class="nbs-billing-summary__head"><strong>Team 10 renewal</strong><span class="nbs-badge nbs-badge--success">Auto-renew</span></div><div class="nbs-billing-summary__row"><span>10 licensed seats</span><strong>$490</strong></div><div class="nbs-billing-summary__row"><span>Due Sep 12</span><strong>$490 total</strong></div></div><div class="nbs-payment-method"><span class="nbs-payment-method__brand">VISA</span><div class="nbs-payment-method__copy"><strong>•••• 4242</strong><span>Expires 11/28</span></div><button class="nbs-button nbs-button--sm" type="button">Change</button></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="licensing" data-search="license activation domain webhook key entitlement release licensing">
+        <div class="cx-section-head"><div><p class="cx-kicker">09 · LICENSING</p><h2>Domain-native patterns</h2></div><p>Soft includes product-specific patterns because generic cards cannot communicate licensing state well enough.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>License card</strong><code>.nbs-license-card</code></div><div class="nbs-license-card"><div class="nbs-license-card__head"><div><span class="nbs-muted">IMAGEFORGE PRO</span><div class="nbs-license-card__key">NL-IMG-7K4M-••••</div></div><span class="nbs-badge nbs-badge--success">Active</span></div><div class="nbs-license-card__meta"><div class="nbs-license-card__meta-item"><span>Customer</span><strong>Apex Studio</strong></div><div class="nbs-license-card__meta-item"><span>Renews</span><strong>Sep 12</strong></div><div class="nbs-license-card__meta-item"><span>Plan</span><strong>Team 5</strong></div></div><div class="nbs-activation-meter"><div class="nbs-activation-meter__head"><span>Activations</span><strong>3 / 5</strong></div><div class="nbs-activation-meter__track" style="--nbs-activation-limit:5"><span class="nbs-activation-meter__slot is-used"></span><span class="nbs-activation-meter__slot is-used"></span><span class="nbs-activation-meter__slot is-used"></span><span class="nbs-activation-meter__slot"></span><span class="nbs-activation-meter__slot"></span></div></div></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Risk + API boundary</strong><code>scope</code></div><div class="cx-wrap"><span class="nbs-risk-chip nbs-risk-chip--read">Read</span><span class="nbs-risk-chip nbs-risk-chip--write">Write</span><span class="nbs-risk-chip nbs-risk-chip--critical">Critical</span></div><div class="nbs-inset nbs-stack"><span class="nbs-muted">Credential</span><strong>secret://github/releases</strong><small>Agent can reference it, never read the secret.</small></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="identity" data-search="customer team workspace member seats subscription identity avatar">
+        <div class="cx-section-head"><div><p class="cx-kicker">10 · IDENTITY + TEAMS</p><h2>People, seats, and workspaces</h2></div><p>Identity patterns keep customer context, membership, and capacity visible near the action.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Customer</strong><code>identity</code></div><div class="cx-person"><span class="cx-avatar">AS</span><div><strong>Apex Studio</strong><span class="nbs-muted">billing@apex.studio</span></div><span class="nbs-badge nbs-badge--success">Customer</span></div><div class="cx-person"><span class="cx-avatar cx-avatar--purple">MK</span><div><strong>Maya Kapoor</strong><span class="nbs-muted">Owner · Team 10</span></div><span class="nbs-badge">Admin</span></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Seats</strong><code>capacity</code></div><div class="nbs-stack"><div class="cx-seat-head"><span>Assigned seats</span><strong>8 / 10</strong></div><div class="cx-meter" role="meter" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8" aria-label="8 of 10 seats assigned"><span style="--v:80%"></span></div><div class="nbs-alert nbs-alert--info"><strong>2 seats available</strong><span>Renewal remains $490/year.</span></div></div></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="agents" data-search="agent ai diff permission scope approval destructive confirmation risk execute verify">
+        <div class="cx-section-head"><div><p class="cx-kicker">11 · AGENTS</p><h2>AI changes stay reviewable</h2></div><p>Agents inspect, plan, preview, request approval, execute, verify, and leave an audit trail.</p></div>
+        <div class="cx-grid cx-grid--2">
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Agent diff</strong><code>add · modify · remove</code></div><div class="cx-agent-plan"><div class="cx-agent-plan-head"><span class="cx-agent-icon">✦</span><div><strong>Configure ImageForge</strong><small>3 proposed changes · medium risk</small></div></div><div class="cx-agent-change cx-agent-change--add"><b>+</b><div><strong>Add R2 delivery</strong><span>Private signed downloads</span></div></div><div class="cx-agent-change cx-agent-change--modify"><b>~</b><div><strong>Activation limit</strong><span>3 → 5 devices</span></div></div><div class="cx-agent-change cx-agent-change--remove"><b>−</b><div><strong>Legacy webhook</strong><span>Remove inactive endpoint</span></div></div><button class="nbs-button nbs-button--primary" id="agentExecute" type="button">Approve 3 changes</button><p class="nbs-muted" id="agentStatus" role="status">Nothing changes until approval.</p></div></article>
+          <article class="cx-demo"><div class="cx-demo-head"><strong>Destructive confirmation</strong><code>typed phrase</code></div><div class="nbs-alert nbs-alert--danger"><strong>Revoke production license</strong><span>Existing installations will lose future update entitlement.</span></div><label class="nbs-field"><span class="nbs-label">Type REVOKE to continue</span><input class="nbs-input" id="revokeInput" autocomplete="off" /></label><button class="nbs-button nbs-button--danger" id="revokeButton" type="button" disabled>Revoke license</button></article>
+        </div>
+      </section>
+
+      <section class="cx-section" id="application" data-search="app shell sidebar topbar dashboard application mobile navigation">
+        <div class="cx-section-head"><div><p class="cx-kicker">12 · APPLICATION SHELL</p><h2>Now use it as software</h2></div><p>The component system culminates in a real NeoLicenser interface rather than a pile of isolated demos.</p></div>
+        <div class="cx-app-preview">
+          <aside><span class="cx-app-logo">N</span><nav><button class="is-active" type="button">⌂ <span>Overview</span></button><button type="button">▤ <span>Licenses</span></button><button type="button">◇ <span>Releases</span></button><button type="button">✦ <span>Agents</span></button></nav></aside>
+          <div class="cx-app-main"><header><div><small>NEOLICENSER</small><strong>Operations overview</strong></div><button class="nbs-button nbs-button--primary nbs-button--sm" type="button">+ Product</button></header><div class="cx-app-stats"><article><span>Licenses</span><strong>12,420</strong><small>+4.2%</small></article><article><span>Active</span><strong>11,892</strong><small>95.7%</small></article><article><span>Expiring</span><strong>528</strong><small>30 days</small></article></div><div class="cx-app-row"><span class="cx-status-dot"></span><div><strong>Rivet Pro activated</strong><small>apex.studio · 2 min ago</small></div><span class="nbs-badge nbs-badge--success">Active</span></div><div class="cx-app-row"><span class="cx-status-dot cx-status-dot--yellow"></span><div><strong>ImageForge renewal</strong><small>northstar.dev · 8 min ago</small></div><span class="nbs-badge nbs-badge--warning">Due</span></div></div>
+        </div>
+        <div class="cx-end-actions"><a class="nbs-button nbs-button--primary nbs-button--lg" href="./demo/v07.html">Open full NeoLicenser v0.7 lab</a><a class="nbs-button nbs-button--lg" href="./">Back to landing page</a></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="nbs-toast-region" id="toastRegion" aria-live="polite"></div>
+
+  <div class="nbs-overlay" id="dialogOverlay" hidden>
+    <section class="nbs-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <div class="nbs-dialog__header"><div><span class="nbs-badge nbs-badge--info">Preview</span><h2 id="dialogTitle">Create product</h2></div><button class="nbs-button nbs-button--icon nbs-button--quiet" data-close="dialog" aria-label="Close dialog" type="button">×</button></div>
+      <label class="nbs-field"><span class="nbs-label">Product name</span><input class="nbs-input" id="dialogFocus" placeholder="ImageForge" /></label>
+      <label class="nbs-field"><span class="nbs-label">Default plan</span><select class="nbs-select"><option>Individual</option><option>Team</option><option>Agency</option></select></label>
+      <div class="nbs-dialog__footer"><button class="nbs-button" data-close="dialog" type="button">Cancel</button><button class="nbs-button nbs-button--primary" type="button">Create product</button></div>
+    </section>
+  </div>
+
+  <div class="cx-drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="nbs-drawer" id="drawer" aria-labelledby="drawerTitle" hidden>
+    <div class="nbs-drawer__header"><div><span class="nbs-badge nbs-badge--info">Drawer</span><h2 id="drawerTitle">License filters</h2></div></div>
+    <div class="nbs-drawer__body nbs-stack"><label class="nbs-check"><input type="checkbox" checked /><span class="nbs-check__box"></span><span class="nbs-check__label">Active</span></label><label class="nbs-check"><input type="checkbox" /><span class="nbs-check__box"></span><span class="nbs-check__label">Expiring</span></label><label class="nbs-check"><input type="checkbox" /><span class="nbs-check__box"></span><span class="nbs-check__label">Needs attention</span></label></div>
+    <div class="nbs-drawer__footer"><button class="nbs-button" data-close="drawer" type="button">Close</button><button class="nbs-button nbs-button--primary" data-close="drawer" type="button">Apply filters</button></div>
+  </aside>
+
+  <div class="nbs-overlay" id="commandOverlay" hidden>
+    <section class="cx-command" role="dialog" aria-modal="true" aria-labelledby="commandTitle">
+      <div class="cx-command-input"><span aria-hidden="true">⌕</span><input id="commandInput" type="search" aria-label="Search components" placeholder="Search Soft components…" autocomplete="off" /><kbd>ESC</kbd></div>
+      <div class="cx-command-results" id="commandResults" role="listbox" aria-label="Component results">
+        <button role="option" aria-selected="true" data-target="controls" type="button"><span>⌘</span><div><strong>Controls</strong><small>Buttons, fields, selection, tabs</small></div></button>
+        <button role="option" aria-selected="false" data-target="overlays" type="button"><span>□</span><div><strong>Overlays</strong><small>Dialog, drawer, menu</small></div></button>
+        <button role="option" aria-selected="false" data-target="data" type="button"><span>▤</span><div><strong>Data</strong><small>Tables and visualization</small></div></button>
+        <button role="option" aria-selected="false" data-target="licensing" type="button"><span>◇</span><div><strong>Licensing</strong><small>License, activation, risk</small></div></button>
+        <button role="option" aria-selected="false" data-target="agents" type="button"><span>✦</span><div><strong>Agents</strong><small>Diffs, approval, destructive flow</small></div></button>
+      </div>
+      <footer><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></footer>
+      <h2 class="cx-visually-hidden" id="commandTitle">Component command palette</h2>
+    </section>
+  </div>
+
+  <script src="./component-explorer.js" type="module"></script>
+</body>
+</html>

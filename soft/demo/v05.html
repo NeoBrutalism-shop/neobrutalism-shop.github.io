@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="NeoBrutal Soft v0.5 commercial-readiness test bench." />
+  <title>NeoBrutal Soft v0.5 — Commercial Readiness</title>
+  <link rel="stylesheet" href="../src/index.css" />
+  <link rel="stylesheet" href="./v05.css" />
+</head>
+<body>
+  <header class="v05-topbar">
+    <div class="v05-brand"><span class="nbs-sidebar__mark" aria-hidden="true">S</span><div><strong>NeoBrutal Soft</strong><span>v0.5 commercial-readiness lab</span></div></div>
+    <div class="v05-actions"><span class="nbs-badge nbs-badge--success">Registry ready</span><span class="nbs-badge nbs-badge--info">React ready</span><button class="nbs-button nbs-button--sm nbs-button--quiet" id="themeToggle" type="button">Dark mode</button></div>
+  </header>
+
+  <main class="nbs-container v05-main">
+    <section class="v05-hero">
+      <div>
+        <p class="v05-kicker">SOFT v0.5 · COMMERCIAL READINESS</p>
+        <h1 class="nbs-heading nbs-heading--display">Production trust.<br />Agent-readable by default.</h1>
+        <p class="nbs-muted">This milestone turns Soft from a deep application system into something teams can adopt, test, automate, install, and trust. The demo stress-tests data controls, billing, release scheduling, webhook inspection, and distribution paths.</p>
+      </div>
+      <div class="v05-hero-side">
+        <div class="nbs-inset"><strong>Release gate</strong><p class="nbs-muted v05-small">A component is not sellable because it looks good. It must survive keyboard use, dark mode, dense data, long labels, automation, LLM generation, and real operational consequences.</p></div>
+        <div class="v05-quality" aria-label="Commercial readiness signals">
+          <div class="v05-quality-item"><span class="nbs-muted v05-xs">CSS systems</span><strong>30+</strong></div>
+          <div class="v05-quality-item"><span class="nbs-muted v05-xs">Themes</span><strong>2</strong></div>
+          <div class="v05-quality-item"><span class="nbs-muted v05-xs">Install paths</span><strong>3</strong></div>
+          <div class="v05-quality-item"><span class="nbs-muted v05-xs">Browser QA</span><strong>CI</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v05-section" aria-labelledby="tableTitle">
+      <div class="v05-section-head"><div><p class="v05-kicker">ADVANCED DATA TABLE</p><h2 class="nbs-heading nbs-heading--2" id="tableTitle">Operators need control without visual noise</h2></div><p class="nbs-muted">Saved views, sorting, density, and column decisions are explicit. State should persist conceptually without turning the table into a spreadsheet clone.</p></div>
+      <div class="nbs-table-toolbar">
+        <div class="nbs-saved-views" aria-label="Saved license views">
+          <button class="nbs-saved-view" type="button" aria-pressed="true" data-view="all">All licenses</button>
+          <button class="nbs-saved-view" type="button" aria-pressed="false" data-view="renewals">Renewals due</button>
+          <button class="nbs-saved-view" type="button" aria-pressed="false" data-view="attention">Needs attention</button>
+        </div>
+        <div class="nbs-cluster">
+          <div class="nbs-table-density" aria-label="Table density"><button type="button" aria-pressed="true" data-density="comfortable">Comfortable</button><button type="button" aria-pressed="false" data-density="compact">Compact</button></div>
+          <button class="nbs-button nbs-button--sm" id="columnsButton" type="button" aria-expanded="false">Columns</button>
+        </div>
+      </div>
+      <div class="v05-grid-main">
+        <div class="v05-table-wrap" id="licenseTableWrap" data-nbs-density="comfortable">
+          <table class="nbs-data-table" id="commercialTable">
+            <thead><tr><th><button class="nbs-sort-button" type="button" data-sort="product" aria-sort="none">Product <span class="nbs-sort-button__mark">↕</span></button></th><th><button class="nbs-sort-button" type="button" data-sort="customer" aria-sort="none">Customer <span class="nbs-sort-button__mark">↕</span></button></th><th data-column="plan">Plan</th><th><button class="nbs-sort-button" type="button" data-sort="renewal" aria-sort="none">Renewal <span class="nbs-sort-button__mark">↕</span></button></th><th data-column="mrr">MRR</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr data-view="all renewals" data-product="ImageForge" data-customer="Apex Studio" data-renewal="2026-09-12"><td><strong>ImageForge</strong></td><td>Apex Studio</td><td data-column="plan">Team 10</td><td>Sep 12</td><td data-column="mrr">$49</td><td><span class="nbs-badge nbs-badge--success">Healthy</span></td></tr>
+              <tr data-view="all attention" data-product="Rivet Pro" data-customer="Northstar Labs" data-renewal="2026-09-09"><td><strong>Rivet Pro</strong></td><td>Northstar Labs</td><td data-column="plan">Agency</td><td>Sep 9</td><td data-column="mrr">$79</td><td><span class="nbs-badge nbs-badge--warning">Card expiring</span></td></tr>
+              <tr data-view="all" data-product="NeoBrutal Soft" data-customer="Monsoon Works" data-renewal="2026-10-01"><td><strong>NeoBrutal Soft</strong></td><td>Monsoon Works</td><td data-column="plan">Team 5</td><td>Oct 1</td><td data-column="mrr">$39</td><td><span class="nbs-badge nbs-badge--success">Healthy</span></td></tr>
+              <tr data-view="all attention renewals" data-product="ImageForge" data-customer="Pixel Harbor" data-renewal="2026-09-08"><td><strong>ImageForge</strong></td><td>Pixel Harbor</td><td data-column="plan">Individual</td><td>Sep 8</td><td data-column="mrr">$19</td><td><span class="nbs-badge nbs-badge--danger">Payment failed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="v05-stack">
+          <div class="nbs-column-menu" id="columnMenu" hidden>
+            <p class="nbs-column-menu__title">VISIBLE COLUMNS</p>
+            <div class="nbs-column-menu__list">
+              <label class="nbs-check"><input type="checkbox" checked data-column-toggle="plan" /><span class="nbs-check__box"></span><span class="nbs-check__label">Plan</span></label>
+              <label class="nbs-check"><input type="checkbox" checked data-column-toggle="mrr" /><span class="nbs-check__box"></span><span class="nbs-check__label">MRR</span></label>
+            </div>
+          </div>
+          <div class="nbs-inset"><strong id="viewSummary">4 licenses visible</strong><p class="nbs-muted v05-small">Saved views represent operator intent. Column visibility and density should not change underlying data meaning.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v05-section" aria-labelledby="billingTitle">
+      <div class="v05-section-head"><div><p class="v05-kicker">BILLING + COMMERCE</p><h2 class="nbs-heading nbs-heading--2" id="billingTitle">Money changes require consequence-first UI</h2></div><span class="nbs-badge nbs-badge--info">WooCommerce handoff</span></div>
+      <div class="v05-grid-2">
+        <article class="nbs-billing-summary">
+          <div class="nbs-billing-summary__head"><div><p class="v05-kicker">NEXT RENEWAL</p><strong>Apex Studio · Team 10</strong></div><span class="nbs-badge nbs-badge--success">Auto-renew</span></div>
+          <div class="v05-billing-lines"><div class="nbs-billing-summary__row"><span>10 licensed seats</span><strong>$490.00</strong></div><div class="nbs-billing-summary__row"><span>Annual support</span><strong>Included</strong></div><div class="nbs-billing-summary__row"><span>Tax</span><strong>$0.00</strong></div></div>
+          <div class="nbs-billing-summary__row nbs-billing-summary__total"><span>Due Sep 12</span><strong class="v05-price">$490</strong></div>
+          <div class="nbs-payment-method"><span class="nbs-payment-method__brand">VISA</span><div class="nbs-payment-method__copy"><strong>•••• 4242</strong><span>Expires 11/28 · billing@apex.studio</span></div><button class="nbs-button nbs-button--sm" type="button">Change</button></div>
+        </article>
+        <article class="v05-stack">
+          <div class="nbs-commerce-handoff"><span class="nbs-commerce-handoff__mark">W</span><div><strong>WooCommerce owns payment</strong><p class="nbs-muted v05-small">NeoLicenser owns entitlement state. The UI makes the system boundary visible before sending the operator elsewhere.</p></div><button class="nbs-button nbs-button--sm" type="button">Open order #4821</button></div>
+          <div class="nbs-invoice-row"><div class="nbs-invoice-row__copy"><strong>INV-2026-0812</strong><span>Aug 12 · paid · Team 10</span></div><span>$490</span><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button">Receipt</button></div>
+          <div class="nbs-invoice-row"><div class="nbs-invoice-row__copy"><strong>INV-2025-0812</strong><span>Aug 12, 2025 · paid</span></div><span>$390</span><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button">Receipt</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="v05-section" aria-labelledby="releaseTitle">
+      <div class="v05-section-head"><div><p class="v05-kicker">TIMEZONE + ROLLOUT</p><h2 class="nbs-heading nbs-heading--2" id="releaseTitle">“Tomorrow at 9” is not a release plan</h2></div><span class="nbs-badge nbs-badge--warning">25% rollout</span></div>
+      <div class="v05-grid-main">
+        <article class="nbs-schedule-card">
+          <div class="nbs-schedule-grid">
+            <label class="nbs-field"><span class="nbs-label">Publish time</span><input class="nbs-input" id="publishTime" type="datetime-local" value="2026-09-08T09:00" /></label>
+            <label class="nbs-field"><span class="nbs-label">Timezone</span><select class="nbs-select" id="timezoneSelect"><option value="Asia/Kolkata">Asia/Kolkata</option><option value="UTC">UTC</option><option value="America/Los_Angeles">America/Los_Angeles</option><option value="Europe/London">Europe/London</option></select></label>
+          </div>
+          <div class="nbs-timezone__preview"><span>Operator sees</span><strong id="timezonePreview">Sep 8 · 09:00 IST</strong></div>
+          <div class="nbs-schedule-note">Release timestamps should always show the timezone and an absolute date near the action. Relative labels can be secondary.</div>
+        </article>
+        <article class="nbs-rollout">
+          <div class="v05-rollout-meta"><div><p class="v05-kicker">IMAGEFORGE 2.8.0</p><strong id="rolloutLabel">25% of eligible installs</strong></div><span class="nbs-badge nbs-badge--success">No regressions</span></div>
+          <div class="nbs-rollout__track" aria-label="Release rollout 25 percent"><div class="nbs-rollout__fill" id="rolloutFill" style="--nbs-rollout-value:25%"></div></div>
+          <div class="nbs-rollout__stages"><div class="nbs-rollout-stage" data-state="complete"><strong>Internal</strong><span>12 installs · complete</span></div><div class="nbs-rollout-stage" data-state="active"><strong>25%</strong><span>1,284 installs · active</span></div><div class="nbs-rollout-stage"><strong>50%</strong><span>Awaiting promotion</span></div><div class="nbs-rollout-stage"><strong>100%</strong><span>Stable population</span></div></div>
+          <div class="v05-rollout-actions"><button class="nbs-button nbs-button--primary" data-rollout="50" type="button">Promote to 50%</button><button class="nbs-button" data-rollout="100" type="button">Promote to 100%</button><button class="nbs-button nbs-button--danger" data-rollout="0" type="button">Pause rollout</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="v05-section" aria-labelledby="inspectorTitle">
+      <div class="v05-section-head"><div><p class="v05-kicker">WEBHOOK INSPECTOR</p><h2 class="nbs-heading nbs-heading--2" id="inspectorTitle">Debug the evidence, not a generic error badge</h2></div><span class="nbs-badge nbs-badge--danger">1 failed delivery</span></div>
+      <div class="nbs-inspector">
+        <div class="nbs-inspector__rail" id="inspectorRail">
+          <button class="nbs-inspector__item" type="button" aria-current="true" data-event="failed"><strong>payment.failed</strong><span>500 · 11:12:08</span></button>
+          <button class="nbs-inspector__item" type="button" aria-current="false" data-event="created"><strong>license.created</strong><span>200 · 11:09:31</span></button>
+          <button class="nbs-inspector__item" type="button" aria-current="false" data-event="renewed"><strong>license.renewed</strong><span>200 · 11:08:04</span></button>
+        </div>
+        <div class="nbs-inspector__panel">
+          <div class="nbs-inspector__meta" id="inspectorMeta"><span class="nbs-badge nbs-badge--danger">HTTP 500</span><span class="nbs-badge">Attempt 3</span><span class="nbs-badge">682ms</span></div>
+          <div class="nbs-inspector-tabs" role="tablist"><button class="nbs-inspector-tab" type="button" role="tab" aria-selected="true" data-panel="request">Request</button><button class="nbs-inspector-tab" type="button" role="tab" aria-selected="false" data-panel="response">Response</button></div>
+          <pre class="nbs-code-panel" id="inspectorCode">{
+  "event": "payment.failed",
+  "license": "NL-IMG-••07",
+  "customer": "Pixel Harbor",
+  "amount": 1900,
+  "currency": "USD"
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="v05-section" aria-labelledby="distributionTitle">
+      <div class="v05-section-head"><div><p class="v05-kicker">DISTRIBUTION</p><h2 class="nbs-heading nbs-heading--2" id="distributionTitle">One design language, multiple consumption paths</h2></div><p class="nbs-muted">The CSS foundation stays framework-agnostic. React and shadcn layers are intentionally thin so they cannot fork the visual system.</p></div>
+      <div class="v05-readiness">
+        <article class="nbs-card v05-readiness-card"><span class="v05-readiness-card__mark">CSS</span><div><strong>Framework-agnostic</strong><p class="nbs-muted v05-small">Use the source package directly in WordPress, Astro, vanilla apps, or any framework.</p></div><code class="v05-code">@import "@neobrutal/soft";</code><span class="nbs-badge nbs-badge--success">Canonical styling</span></article>
+        <article class="nbs-card v05-readiness-card"><span class="v05-readiness-card__mark">R</span><div><strong>Thin React wrappers</strong><p class="nbs-muted v05-small">Primitives map props to stable Soft classes; behavior and semantics remain native-first.</p></div><code class="v05-code">import { Button } from "@neobrutal/soft-react"</code><span class="nbs-badge nbs-badge--info">v0.5 foundation</span></article>
+        <article class="nbs-card v05-readiness-card"><span class="v05-readiness-card__mark">S</span><div><strong>shadcn source registry</strong><p class="nbs-muted v05-small">A registry base installs the complete design-system contract before UI primitives.</p></div><code class="v05-code">shadcn add soft-button</code><span class="nbs-badge nbs-badge--success">registry.json</span></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./v05.js" type="module"></script>
+</body>
+</html>

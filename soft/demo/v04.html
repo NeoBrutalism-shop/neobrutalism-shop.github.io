@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="NeoBrutal Soft v0.4 data, time, files, and operational status test bench." />
+  <title>NeoBrutal Soft v0.4 — Operations Center</title>
+  <link rel="stylesheet" href="../src/index.css" />
+  <link rel="stylesheet" href="./v04.css" />
+</head>
+<body>
+  <header class="v04-topbar">
+    <div class="v04-brand">
+      <span class="nbs-sidebar__mark" aria-hidden="true">NL</span>
+      <div><strong>NeoLicenser Operations</strong><span>NeoBrutal Soft v0.4 dogfood</span></div>
+    </div>
+    <div class="v04-actions">
+      <span class="nbs-badge nbs-badge--success"><span class="nbs-status-dot"></span> All systems healthy</span>
+      <button class="nbs-button nbs-button--sm nbs-button--quiet" id="themeToggle" type="button">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="nbs-container v04-main">
+    <section class="v04-hero">
+      <div>
+        <p class="v04-kicker">SOFT v0.4 · OPERATIONS</p>
+        <h1 class="nbs-heading nbs-heading--display">Data that explains.<br />Controls that feel physical.</h1>
+        <p class="nbs-muted">This milestone stress-tests Soft around renewals, time ranges, signed release artifacts, delivery failures, batch operations, and team seats—the everyday operational work that makes infrastructure software trustworthy.</p>
+      </div>
+      <div class="v04-hero-side">
+        <div class="nbs-inset v04-hero-note"><strong>Release rule</strong><p class="nbs-muted v04-small">Charts never become decorative wallpaper. Upload lift only appears during a real drag. Partial failures stay visible until the operator decides what happens next.</p></div>
+        <div class="v04-saved-views" aria-label="Saved views">
+          <button class="v04-view" type="button" aria-pressed="true">Today</button>
+          <button class="v04-view" type="button" aria-pressed="false">Renewals</button>
+          <button class="v04-view" type="button" aria-pressed="false">Release day</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="v04-section" aria-labelledby="signalsTitle">
+      <div class="v04-section-head">
+        <div><p class="v04-kicker">DATA VISUALIZATION</p><h2 class="nbs-heading nbs-heading--2" id="signalsTitle">Operational signals, not dashboard decoration</h2></div>
+        <p class="nbs-muted">Every mark should answer a question. Focus or hover bars to inspect exact values; status is also expressed in labels and numbers, never color alone.</p>
+      </div>
+
+      <div class="v04-grid-main">
+        <article class="nbs-chart-card">
+          <div class="nbs-chart-card__head">
+            <div><span class="nbs-muted v04-xs">ACTIVATIONS · LAST 7 DAYS</span><div class="nbs-chart-card__value">4,862</div></div>
+            <span class="nbs-badge nbs-badge--success">+12.8%</span>
+          </div>
+          <div class="nbs-chart" id="activationChart" aria-label="Daily activations for the last seven days">
+            <div class="nbs-chart__bars">
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Monday: 510 activations" data-label="Mon" data-value="510" style="--_value:48%"></div>
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Tuesday: 642 activations" data-label="Tue" data-value="642" style="--_value:61%"></div>
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Wednesday: 588 activations" data-label="Wed" data-value="588" style="--_value:56%"></div>
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Thursday: 731 activations" data-label="Thu" data-value="731" style="--_value:70%"></div>
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Friday: 806 activations" data-label="Fri" data-value="806" style="--_value:78%"></div>
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Saturday: 689 activations" data-label="Sat" data-value="689" style="--_value:66%"></div>
+              <div class="nbs-chart-bar" tabindex="0" role="img" aria-label="Sunday: 896 activations" data-label="Sun" data-value="896" style="--_value:88%"></div>
+            </div>
+          </div>
+          <div class="nbs-chart-legend"><span class="nbs-chart-legend__item"><span class="nbs-chart-legend__swatch"></span>Successful activations</span><span>Peak: Sunday · 896</span></div>
+        </article>
+
+        <article class="nbs-card">
+          <div class="v04-card-head"><div><p class="v04-kicker">HEALTH SNAPSHOT</p><h3 class="nbs-card__title">What needs attention?</h3></div><span class="nbs-badge nbs-badge--warning">3 signals</span></div>
+          <div class="v04-stack">
+            <div><div class="v04-inline"><strong>Renewal conversion</strong><span class="nbs-badge nbs-badge--success">91%</span></div><div class="nbs-meter" data-tone="success" style="--nbs-meter-segments:10" aria-label="Renewal conversion 91 percent"><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span></span></div></div>
+            <div><div class="v04-inline"><strong>Webhook success</strong><span class="nbs-badge nbs-badge--warning">96.4%</span></div><div class="nbs-meter" data-tone="warning" style="--nbs-meter-segments:10" aria-label="Webhook success 96.4 percent"><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span></span></div></div>
+            <div><div class="v04-inline"><strong>Seat capacity</strong><span class="nbs-badge nbs-badge--warning">8 / 10</span></div><div class="nbs-meter" data-tone="warning" style="--nbs-meter-segments:10" aria-label="Eight of ten team seats used"><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span data-filled="true"></span><span></span><span></span></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="v04-section" aria-labelledby="timeTitle">
+      <div class="v04-section-head"><div><p class="v04-kicker">DATE + TIME</p><h2 class="nbs-heading nbs-heading--2" id="timeTitle">Renewal windows should be explicit</h2></div><span class="nbs-badge nbs-badge--info" id="rangeBadge">7 days selected</span></div>
+      <div class="v04-grid-2">
+        <article class="nbs-card v04-range-card">
+          <div class="nbs-date-range">
+            <label class="nbs-date-field"><span class="nbs-label">From</span><div class="nbs-date-input"><span aria-hidden="true">◫</span><input id="rangeStart" value="Sep 7, 2026" readonly aria-label="Range start" /><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button">Change</button></div></label>
+            <span class="nbs-date-range__arrow" aria-hidden="true">→</span>
+            <label class="nbs-date-field"><span class="nbs-label">To</span><div class="nbs-date-input"><span aria-hidden="true">◫</span><input id="rangeEnd" value="Sep 13, 2026" readonly aria-label="Range end" /><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button">Change</button></div></label>
+          </div>
+          <div class="v04-range-summary"><span class="nbs-muted v04-small"><strong id="renewalCount">164</strong> licenses renew in this window</span><button class="nbs-button nbs-button--primary" id="applyRange" type="button">Apply range</button></div>
+        </article>
+
+        <article class="nbs-calendar" aria-label="September 2026 calendar">
+          <div class="nbs-calendar__head"><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button" aria-label="Previous month">←</button><strong>September 2026</strong><button class="nbs-button nbs-button--sm nbs-button--quiet" type="button" aria-label="Next month">→</button></div>
+          <div class="nbs-calendar__grid" id="calendarGrid">
+            <span class="nbs-calendar__weekday">M</span><span class="nbs-calendar__weekday">T</span><span class="nbs-calendar__weekday">W</span><span class="nbs-calendar__weekday">T</span><span class="nbs-calendar__weekday">F</span><span class="nbs-calendar__weekday">S</span><span class="nbs-calendar__weekday">S</span>
+            <button class="nbs-calendar__day" data-day="1">1</button><button class="nbs-calendar__day" data-day="2">2</button><button class="nbs-calendar__day" data-day="3">3</button><button class="nbs-calendar__day" data-day="4">4</button><button class="nbs-calendar__day" data-day="5">5</button><button class="nbs-calendar__day" data-day="6">6</button><button class="nbs-calendar__day" data-day="7" data-today="true" aria-selected="true">7</button>
+            <button class="nbs-calendar__day" data-day="8" data-in-range="true">8</button><button class="nbs-calendar__day" data-day="9" data-in-range="true">9</button><button class="nbs-calendar__day" data-day="10" data-in-range="true">10</button><button class="nbs-calendar__day" data-day="11" data-in-range="true">11</button><button class="nbs-calendar__day" data-day="12" data-in-range="true">12</button><button class="nbs-calendar__day" data-day="13" aria-selected="true">13</button><button class="nbs-calendar__day" data-day="14">14</button>
+            <button class="nbs-calendar__day" data-day="15">15</button><button class="nbs-calendar__day" data-day="16">16</button><button class="nbs-calendar__day" data-day="17">17</button><button class="nbs-calendar__day" data-day="18">18</button><button class="nbs-calendar__day" data-day="19">19</button><button class="nbs-calendar__day" data-day="20">20</button><button class="nbs-calendar__day" data-day="21">21</button>
+            <button class="nbs-calendar__day" data-day="22">22</button><button class="nbs-calendar__day" data-day="23">23</button><button class="nbs-calendar__day" data-day="24">24</button><button class="nbs-calendar__day" data-day="25">25</button><button class="nbs-calendar__day" data-day="26">26</button><button class="nbs-calendar__day" data-day="27">27</button><button class="nbs-calendar__day" data-day="28">28</button>
+            <button class="nbs-calendar__day" data-day="29">29</button><button class="nbs-calendar__day" data-day="30">30</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="v04-section" aria-labelledby="releaseTitle">
+      <div class="v04-section-head"><div><p class="v04-kicker">FILES + RELEASES</p><h2 class="nbs-heading nbs-heading--2" id="releaseTitle">A release should feel verifiable before it feels published</h2></div><span class="nbs-badge nbs-badge--success">R2 connected</span></div>
+      <div class="v04-grid-main">
+        <article class="v04-stack">
+          <label class="nbs-dropzone" id="dropzone">
+            <input id="releaseFile" type="file" accept=".zip" />
+            <span class="nbs-dropzone__icon" aria-hidden="true">↑</span>
+            <span class="nbs-dropzone__copy"><strong>Drop a signed release ZIP</strong><span>Or choose a file · maximum 250 MB · ZIP only</span></span>
+          </label>
+          <div class="v04-upload-result" id="uploadResult" hidden><div class="v04-inline"><span class="nbs-badge nbs-badge--success">Verified</span><strong id="uploadName">imageforge-2.8.0.zip</strong></div><span class="nbs-muted v04-xs" id="uploadMeta">24.8 MB · SHA-256 calculated · ready for R2</span></div>
+        </article>
+
+        <article class="nbs-artifact">
+          <div class="nbs-artifact__head"><div><p class="v04-kicker">CURRENT ARTIFACT</p><strong>ImageForge 2.7.0</strong></div><span class="nbs-badge nbs-badge--success">Signed</span></div>
+          <div class="v04-release-meta"><div><span>Package</span><strong>24.1 MB</strong></div><div><span>Downloads</span><strong>3,842</strong></div><div><span>Channel</span><strong>Stable</strong></div></div>
+          <div class="nbs-artifact__hash">sha256:c3c521d6f5de086cb37e3ab122ccf849c48d83acbb0cb26d19a62f5c26b7a042</div>
+          <div class="nbs-artifact__footer"><span class="nbs-muted v04-xs">Uploaded Sep 4 · GitHub Release Agent</span><button class="nbs-button nbs-button--sm" type="button">Verify again</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="v04-section" aria-labelledby="deliveryTitle">
+      <div class="v04-section-head"><div><p class="v04-kicker">OPERATIONAL STATUS</p><h2 class="nbs-heading nbs-heading--2" id="deliveryTitle">Failures stay visible until resolved</h2></div><button class="nbs-button nbs-button--sm" id="retryFailed" type="button">Retry failed webhook</button></div>
+      <div class="v04-grid-main">
+        <article>
+          <div class="v04-log-head"><span>Method</span><span>Event</span><span>Destination</span><span>Status</span></div>
+          <div class="nbs-webhook-log" id="webhookLog">
+            <div class="nbs-webhook-event"><span class="nbs-webhook-event__method">POST</span><div class="nbs-webhook-event__copy"><strong>license.created</strong><span>evt_8921 · 214 bytes</span></div><span class="nbs-webhook-event__time">woocommerce</span><span class="nbs-badge nbs-badge--success">200 · 182ms</span></div>
+            <div class="nbs-webhook-event" id="failedWebhook"><span class="nbs-webhook-event__method">POST</span><div class="nbs-webhook-event__copy"><strong>subscription.renewed</strong><span>evt_8918 · retry 2/5</span></div><span class="nbs-webhook-event__time">customer.app</span><span class="nbs-badge nbs-badge--danger" id="failedWebhookStatus">503 · failed</span></div>
+            <div class="nbs-webhook-event"><span class="nbs-webhook-event__method">POST</span><div class="nbs-webhook-event__copy"><strong>release.published</strong><span>evt_8914 · 402 bytes</span></div><span class="nbs-webhook-event__time">github</span><span class="nbs-badge nbs-badge--success">204 · 94ms</span></div>
+          </div>
+        </article>
+
+        <article class="nbs-operation" id="batchOperation">
+          <div class="nbs-operation__head"><div><p class="v04-kicker">BATCH RENEWAL</p><strong>Extend 164 entitlements</strong></div><span class="nbs-badge" id="batchState">Ready</span></div>
+          <div class="v04-batch-progress"><div class="nbs-progress" id="batchProgress" style="--nbs-progress-value:0%" role="progressbar" aria-label="Batch renewal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div><span class="nbs-operation__meta" id="batchMeta">Nothing changes until you start the batch.</span></div>
+          <div class="nbs-operation__steps">
+            <div class="nbs-operation-step" id="stepValidate"><span class="nbs-operation-step__mark">1</span><div class="nbs-operation-step__label"><strong>Validate entitlements</strong><span>Check status, product and renewal eligibility.</span></div><span class="nbs-badge">Pending</span></div>
+            <div class="nbs-operation-step" id="stepExtend"><span class="nbs-operation-step__mark">2</span><div class="nbs-operation-step__label"><strong>Extend update access</strong><span>Apply the renewal period to eligible licenses.</span></div><span class="nbs-badge">Pending</span></div>
+            <div class="nbs-operation-step" id="stepNotify"><span class="nbs-operation-step__mark">3</span><div class="nbs-operation-step__label"><strong>Notify integrations</strong><span>Deliver webhooks and audit events.</span></div><span class="nbs-badge">Pending</span></div>
+          </div>
+          <div class="v04-batch-actions"><button class="nbs-button nbs-button--primary" id="startBatch" type="button">Run batch</button></div>
+        </article>
+      </div>
+
+      <div class="nbs-partial-failure" id="partialFailure" hidden>
+        <div class="v04-card-head"><div><strong>Batch completed with 2 exceptions</strong><p class="nbs-muted v04-small">Successful renewals remain applied. Exceptions are isolated for review instead of rolling the entire batch back.</p></div><span class="nbs-badge nbs-badge--warning">Partial success</span></div>
+        <div class="nbs-batch-summary"><div class="nbs-batch-summary__item"><span>Extended</span><strong>162</strong></div><div class="nbs-batch-summary__item"><span>Skipped</span><strong>1</strong></div><div class="nbs-batch-summary__item"><span>Failed</span><strong>1</strong></div></div>
+        <div class="nbs-partial-failure__items"><div class="nbs-partial-failure__row"><span><strong>NL-RVT-••14</strong> · already revoked</span><span class="nbs-badge">Skipped</span></div><div class="nbs-partial-failure__row"><span><strong>NL-IMG-••81</strong> · database write conflict</span><span class="nbs-badge nbs-badge--danger">Retry</span></div></div>
+      </div>
+    </section>
+
+    <section class="v04-section" aria-labelledby="teamTitle">
+      <div class="v04-section-head"><div><p class="v04-kicker">CUSTOMERS + TEAMS</p><h2 class="nbs-heading nbs-heading--2" id="teamTitle">Seats, identity and renewal policy in one place</h2></div><span class="nbs-badge nbs-badge--warning">8 / 10 seats</span></div>
+      <div class="v04-team-grid">
+        <article class="nbs-team-card">
+          <div class="nbs-team-card__head"><div><p class="v04-kicker">APEX STUDIO</p><h3 class="nbs-card__title">Agency workspace</h3></div><span class="nbs-badge nbs-badge--success">Active</span></div>
+          <div class="nbs-seat-meter" data-state="warning"><div class="nbs-seat-meter__meta"><span>8 seats assigned</span><strong>2 available</strong></div><div class="nbs-seat-meter__track" style="--nbs-seat-total:10" aria-label="Eight of ten seats assigned"><span data-used="true"></span><span data-used="true"></span><span data-used="true"></span><span data-used="true"></span><span data-used="true"></span><span data-used="true"></span><span data-used="true"></span><span data-used="true"></span><span></span><span></span></div></div>
+          <div class="nbs-members"><div class="nbs-member"><span class="nbs-avatar" data-tone="primary">AK</span><div class="nbs-member__copy"><strong>Aarav Kapoor</strong><span>Owner · aarav@apex.example</span></div><span class="nbs-badge">Owner</span><button class="nbs-button nbs-button--sm nbs-button--quiet">Open</button></div><div class="nbs-member"><span class="nbs-avatar" data-tone="success">MP</span><div class="nbs-member__copy"><strong>Mira Patel</strong><span>Developer · mira@apex.example</span></div><span class="nbs-badge">Member</span><button class="nbs-button nbs-button--sm nbs-button--quiet">Open</button></div></div>
+          <button class="nbs-button" type="button">Invite member</button>
+        </article>
+
+        <article class="nbs-card">
+          <div class="v04-card-head"><div><p class="v04-kicker">RENEWAL POLICY</p><h3 class="nbs-card__title">How should seats renew?</h3></div><span class="nbs-badge">Annual</span></div>
+          <div class="nbs-radio-group" id="renewalPolicy">
+            <label class="nbs-radio"><input name="renewal" type="radio" value="preserve" checked /><span class="nbs-radio__dot"></span><span class="nbs-radio__copy"><strong>Preserve purchased capacity</strong><span>Renew all 10 purchased seats even if only 8 are currently assigned.</span></span></label>
+            <label class="nbs-radio"><input name="renewal" type="radio" value="active" /><span class="nbs-radio__dot"></span><span class="nbs-radio__copy"><strong>Renew assigned seats only</strong><span>Reduce the next term to currently assigned capacity after confirmation.</span></span></label>
+          </div>
+          <div class="nbs-alert nbs-alert--info"><span class="nbs-alert__icon">i</span><div><p class="nbs-alert__title">Current forecast</p><p class="nbs-alert__body" id="renewalForecast">10 seats renew on October 1 for $490/year.</p></div></div>
+          <div class="nbs-subscription-history"><div class="nbs-subscription-event"><span class="nbs-subscription-event__date">2026-08-12</span><div class="nbs-subscription-event__copy"><strong>+2 seats</strong><span>Expanded from 8 to 10 seats</span></div><span class="nbs-badge nbs-badge--success">$98</span></div><div class="nbs-subscription-event"><span class="nbs-subscription-event__date">2025-10-01</span><div class="nbs-subscription-event__copy"><strong>Annual renewal</strong><span>8 seats · successful payment</span></div><span class="nbs-badge nbs-badge--success">$392</span></div></div>
+          <button class="nbs-button nbs-button--primary" id="saveRenewal" type="button">Save renewal policy</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="v04-toast-region" id="toastRegion" aria-live="polite" aria-atomic="false"></div>
+  <script src="./v04.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+# NeoBrutal Soft
+
+NeoBrutal Soft is a Soft Neo-Brutalism design system for SaaS, admin, developer tools, agent workflows, licensing, commerce operations, and long-session product interfaces.
+
+Primary design law: Compress, never float.
+
+Canonical sources:
+- Human overview: README.md
+- Design language: DESIGN.md
+- Agent instructions: LLMS.md
+- Component matrix: COMPONENTS.md
+- Quality gate: QUALITY.md
+- Resilience contract: RESILIENCE.md
+- Machine manifest: registry/manifest.json
+- shadcn source registry: registry.json
+- CSS entrypoint: src/index.css
+- React wrappers: packages/react/src/index.js
+
+Public behavioral references:
+- Flagship: index.html
+- Full interactive component explorer: components.html
+- Current NeoLicenser application dogfood: demo/v07.html
+
+Important generation rules:
+- ordinary interactive controls compress into their shadow on hover/press; never add generic upward hover lift
+- use semantic --nbs-* tokens and nbs-* component classes
+- preserve light/dark parity, visible focus, keyboard access, touch access, reduced-motion meaning, RTL and forced-colors resilience
+- charts explain operational questions and expose exact values
+- agent changes should be inspectable and reviewable before sensitive execution
+- preserve webhook failure history and partial-failure truth
+- show timezone, absolute timing, billing, seat, and rollout consequences before commitment
+- agents should operate on credential references rather than raw secrets
+- use components.html and demo/v07.html as behavior references, not as permission to copy demo-specific cx-* or v07-* layout classes into reusable product components
+
+Read LLMS.md before generating substantial NeoBrutal Soft UI.
