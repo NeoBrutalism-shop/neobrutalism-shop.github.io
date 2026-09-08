@@ -1,0 +1,51 @@
+name: Publish NeoBrutal Soft snapshot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-soft.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout archive
+        uses: actions/checkout@v4
+
+      - name: Fetch approved Soft v0.7 source
+        run: |
+          rm -rf /tmp/NeoBrutal-Soft
+          git clone --filter=blob:none https://github.com/NeoBrutalism-shop/NeoBrutal-Soft.git /tmp/NeoBrutal-Soft
+          git -C /tmp/NeoBrutal-Soft checkout dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a
+
+      - name: Publish static runtime to /soft
+        run: |
+          rm -rf soft
+          mkdir -p soft
+          cp /tmp/NeoBrutal-Soft/index.html soft/
+          cp /tmp/NeoBrutal-Soft/showcase.css soft/
+          cp /tmp/NeoBrutal-Soft/showcase.js soft/
+          cp /tmp/NeoBrutal-Soft/components.html soft/
+          cp /tmp/NeoBrutal-Soft/component-explorer.css soft/
+          cp /tmp/NeoBrutal-Soft/component-explorer.js soft/
+          cp /tmp/NeoBrutal-Soft/llms.txt soft/
+          cp -R /tmp/NeoBrutal-Soft/src soft/
+          cp -R /tmp/NeoBrutal-Soft/demo soft/
+          printf '%s\n' 'dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a' > soft/.source-commit
+          touch .nojekyll
+
+      - name: Commit snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add soft .nojekyll
+          if git diff --cached --quiet; then
+            echo 'Snapshot already current.'
+            exit 0
+          fi
+          git commit -m 'publish: archive NeoBrutal Soft v0.7'
+          git push
