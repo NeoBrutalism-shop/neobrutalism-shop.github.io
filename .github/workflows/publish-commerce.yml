@@ -1,0 +1,45 @@
+name: Publish NeoBrutal Commerce snapshot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-commerce.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout archive
+        uses: actions/checkout@v4
+
+      - name: Fetch approved Commerce v0.1 source
+        run: |
+          rm -rf /tmp/NeoBrutal-Commerce
+          git clone --filter=blob:none https://github.com/NeoBrutalism-shop/NeoBrutal-Commerce.git /tmp/NeoBrutal-Commerce
+          git -C /tmp/NeoBrutal-Commerce checkout 210a2321a442a6ad9126d6f8208ba871f2df5a02
+
+      - name: Publish static runtime to /commerce
+        run: |
+          rm -rf commerce
+          mkdir -p commerce
+          cp /tmp/NeoBrutal-Commerce/index.html commerce/
+          cp -R /tmp/NeoBrutal-Commerce/src commerce/
+          cp -R /tmp/NeoBrutal-Commerce/demo commerce/
+          printf '%s\n' '210a2321a442a6ad9126d6f8208ba871f2df5a02' > commerce/.source-commit
+          touch .nojekyll
+
+      - name: Commit snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add commerce .nojekyll
+          if git diff --cached --quiet; then
+            echo 'Snapshot already current.'
+            exit 0
+          fi
+          git commit -m 'publish: archive NeoBrutal Commerce v0.1'
+          git push
