@@ -1,0 +1,200 @@
+/* Foundry polish layer
+   Keeps the root foundry editorial and tactile without changing flavor source code. */
+
+@media (min-width: 72rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1.42fr) minmax(22rem, .58fr);
+    gap: clamp(3.5rem, 5vw, 6.5rem);
+    align-items: center;
+  }
+
+  .hero-copy {
+    min-width: 0;
+  }
+
+  .hero h1 {
+    max-width: none;
+    font-size: clamp(5rem, 5.9vw, 7.4rem);
+    line-height: .84;
+    text-wrap: balance;
+  }
+
+  .hero-object {
+    width: min(100%, 30rem);
+    max-width: 30rem;
+    justify-self: end;
+    padding: clamp(2rem, 3vw, 3.75rem) 0;
+  }
+
+  .hero-press {
+    inline-size: min(100%, 28rem);
+  }
+
+  .hero-press strong {
+    font-size: clamp(2.25rem, 3.35vw, 4rem);
+  }
+}
+
+@media (min-width: 72rem) and (max-width: 86rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1.35fr) minmax(20rem, .65fr);
+    gap: clamp(2.5rem, 4vw, 4rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(4.5rem, 6.2vw, 6.3rem);
+  }
+
+  .hero-object {
+    max-width: 26rem;
+  }
+}
+
+@media (max-width: 71.999rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    padding-block: var(--space-7);
+  }
+
+  .hero h1 {
+    max-width: 10ch;
+    font-size: clamp(4rem, 10.5vw, 7rem);
+  }
+
+  .hero-object {
+    width: min(100%, 34rem);
+    justify-self: center;
+    padding: clamp(1.5rem, 5vw, 3rem);
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero h1 {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+    line-height: .86;
+  }
+
+  .hero-facts {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .hero-facts > div {
+    padding-block: .25rem;
+  }
+
+  .hero-object {
+    padding-inline: .25rem;
+  }
+
+  .object-note {
+    font-size: .62rem;
+  }
+}
+
+/* Continuous foundry banner. JS creates two identical groups for a seamless loop. */
+.marquee {
+  position: relative;
+  isolation: isolate;
+}
+
+.marquee-track {
+  width: max-content;
+  min-width: max-content;
+  justify-content: flex-start;
+  gap: 0;
+  padding-inline: 0;
+  animation: foundry-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding-inline: clamp(1rem, 2vw, 2rem);
+}
+
+.marquee-group > * {
+  flex: none;
+}
+
+.marquee.is-paused .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-toggle {
+  position: absolute;
+  z-index: 3;
+  inset: 50% clamp(.55rem, 1.2vw, 1rem) auto auto;
+  translate: 0 -50%;
+  min-height: 2.15rem;
+  padding: .35rem .6rem;
+  background: #fffdf8;
+  color: #171717;
+  border: 2px solid #171717;
+  border-radius: .45rem;
+  box-shadow: 3px 3px 0 #171717;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: .68rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-toggle:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 #171717;
+  }
+}
+
+.marquee-toggle:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 #171717;
+}
+
+@keyframes foundry-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Give the hero object intentional separation from the display type. */
+.hero-object::before {
+  content: "";
+  position: absolute;
+  inset: 14% auto 14% -1.5rem;
+  width: 2px;
+  background: color-mix(in srgb, var(--border) 28%, transparent);
+}
+
+@media (max-width: 71.999rem) {
+  .hero-object::before { display: none; }
+}
+
+/* Stickers are decorative punctuation, not floating controls. */
+.note-one { inset: 2% auto auto -2%; }
+.note-two { inset: auto -1% 1% auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .hero-object::before { background: CanvasText; }
+  .marquee-toggle {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+}
