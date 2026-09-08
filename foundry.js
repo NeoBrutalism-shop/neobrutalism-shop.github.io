@@ -88,6 +88,23 @@ function setupMarquee() {
   marquee.append(toggle);
 }
 
+function syncCommerceCard() {
+  const card = document.querySelector('.system-commerce');
+  if (!card) return;
+  const status = card.querySelector('.status');
+  const action = card.querySelector('.system-actions .button');
+  if (status) {
+    status.classList.remove('status-building');
+    status.classList.add('status-live');
+    status.textContent = 'LIVE · v0.2';
+  }
+  if (action) {
+    action.href = './commerce/';
+    action.innerHTML = 'Open Commerce <span aria-hidden="true">→</span>';
+  }
+}
+
 setupMarquee();
+syncCommerceCard();
 
 if (year) year.textContent = new Date().getFullYear();
