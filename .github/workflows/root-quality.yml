@@ -1,0 +1,68 @@
+name: Foundry root quality
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'foundry.css'
+      - 'foundry.js'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'llms.txt'
+      - '.github/workflows/root-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'foundry.css'
+      - 'foundry.js'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'llms.txt'
+      - '.github/workflows/root-quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  root-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: JavaScript syntax
+        run: node --check foundry.js
+
+      - name: Foundry interaction contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f foundry.css
+          test -f foundry.js
+          grep -q 'href="./soft/"' index.html
+          grep -q 'href="./soft/components.html"' index.html
+          grep -q 'Compress, never float' llms.txt
+          if grep -Eiq 'transition[[:space:]]*:[[:space:]]*all' foundry.css; then
+            echo 'transition: all is prohibited'
+            exit 1
+          fi
+          if grep -Eiq ':hover[^\{]*\{[^\}]*translate(Y)?\([[:space:]]*-' foundry.css; then
+            echo 'Upward hover lift is prohibited'
+            exit 1
+          fi
+
+      - name: Serve and verify public paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 >/tmp/foundry-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          sleep 1
+          curl --fail --silent http://127.0.0.1:4173/ >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/foundry.css >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/foundry.js >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/soft/ >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/soft/components.html >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/soft/demo/v07.html >/dev/null
