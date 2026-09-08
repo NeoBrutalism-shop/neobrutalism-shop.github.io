@@ -5,6 +5,7 @@ on:
     paths:
       - 'index.html'
       - 'foundry.css'
+      - 'foundry-polish.css'
       - 'foundry.js'
       - 'robots.txt'
       - 'sitemap.xml'
@@ -15,6 +16,7 @@ on:
     paths:
       - 'index.html'
       - 'foundry.css'
+      - 'foundry-polish.css'
       - 'foundry.js'
       - 'robots.txt'
       - 'sitemap.xml'
@@ -39,15 +41,19 @@ jobs:
           set -euo pipefail
           test -f index.html
           test -f foundry.css
+          test -f foundry-polish.css
           test -f foundry.js
           grep -q 'href="./soft/"' index.html
           grep -q 'href="./soft/components.html"' index.html
           grep -q 'Compress, never float' llms.txt
-          if grep -Eiq 'transition[[:space:]]*:[[:space:]]*all' foundry.css; then
+          grep -q 'foundry-marquee' foundry-polish.css
+          grep -q 'prefers-reduced-motion' foundry-polish.css
+          grep -q 'Play moving foundry banner' foundry.js
+          if grep -Eiq 'transition[[:space:]]*:[[:space:]]*all' foundry.css foundry-polish.css; then
             echo 'transition: all is prohibited'
             exit 1
           fi
-          if grep -Eiq ':hover[^\{]*\{[^\}]*translate(Y)?\([[:space:]]*-' foundry.css; then
+          if grep -Eiq ':hover[^\{]*\{[^\}]*translate(Y)?\([[:space:]]*-' foundry.css foundry-polish.css; then
             echo 'Upward hover lift is prohibited'
             exit 1
           fi
@@ -62,6 +68,7 @@ jobs:
           sleep 1
           curl --fail --silent http://127.0.0.1:4173/ >/dev/null
           curl --fail --silent http://127.0.0.1:4173/foundry.css >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/foundry-polish.css >/dev/null
           curl --fail --silent http://127.0.0.1:4173/foundry.js >/dev/null
           curl --fail --silent http://127.0.0.1:4173/soft/ >/dev/null
           curl --fail --silent http://127.0.0.1:4173/soft/components.html >/dev/null
