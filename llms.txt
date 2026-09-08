@@ -1,0 +1,23 @@
+# NeoBrutalism Foundry
+
+Permanent public archive for the NeoBrutalism design-system family.
+
+## Canonical archive
+- Foundry: https://neobrutalism-shop.github.io/
+- Soft: https://neobrutalism-shop.github.io/soft/
+- Soft component explorer: https://neobrutalism-shop.github.io/soft/components.html
+- Soft NeoLicenser lab: https://neobrutalism-shop.github.io/soft/demo/v07.html
+
+## Source repositories
+- Family specification: https://github.com/NeoBrutalism-shop/spec
+- NeoBrutal Soft: https://github.com/NeoBrutalism-shop/NeoBrutal-Soft
+- NeoBrutal Commerce: https://github.com/NeoBrutalism-shop/NeoBrutal-Commerce
+- Foundry archive: https://github.com/NeoBrutalism-shop/neobrutalism-shop.github.io
+
+## Family interaction law
+Compress, never float.
+
+Interactive raised surfaces move toward the plane on hover/contact and consume remaining depth on press. Generic upward hover lift is non-conformant.
+
+## Agent guidance
+Treat each flavor as a visual/personality layer over a shared family contract. Do not assume flavors are palette swaps. Preserve semantic tokens, tactile state meaning, accessibility behavior, light/dark support, fluid sizing and reduced-motion behavior.
