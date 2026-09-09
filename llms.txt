@@ -7,6 +7,9 @@ Permanent public archive for the NeoBrutalism design-system family.
 - Soft: https://neobrutalism-shop.github.io/soft/
 - Soft component explorer: https://neobrutalism-shop.github.io/soft/components.html
 - Soft NeoLicenser lab: https://neobrutalism-shop.github.io/soft/demo/v07.html
+- Commerce v1.0: https://neobrutalism-shop.github.io/commerce/
+- Commerce component + block explorer: https://neobrutalism-shop.github.io/commerce/components.html
+- Commerce application lab: https://neobrutalism-shop.github.io/commerce/demo/v10.html
 
 ## Source repositories
 - Family specification: https://github.com/NeoBrutalism-shop/spec
@@ -21,3 +24,5 @@ Interactive raised surfaces move toward the plane on hover/contact and consume r
 
 ## Agent guidance
 Treat each flavor as a visual/personality layer over a shared family contract. Do not assume flavors are palette swaps. Preserve semantic tokens, tactile state meaning, accessibility behavior, light/dark support, fluid sizing and reduced-motion behavior.
+
+Commerce v1.0 is a production commerce flavor with 47 machine-readable component contracts, 18 reusable showcase blocks, ten production routes, and a route lab that frames the actual shipping pages rather than copies.

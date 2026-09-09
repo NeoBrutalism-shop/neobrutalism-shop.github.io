@@ -5,35 +5,95 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/publish-commerce.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+env:
+  COMMERCE_SOURCE_SHA: 2c8ba6dd2c61079dc11514de71d1fcf03b5de0ac
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout archive
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Fetch approved Commerce v0.2 source
+      - name: Fetch approved Commerce v1.0 source
+        shell: bash
         run: |
+          set -euo pipefail
           rm -rf /tmp/NeoBrutal-Commerce
           git clone --filter=blob:none https://github.com/NeoBrutalism-shop/NeoBrutal-Commerce.git /tmp/NeoBrutal-Commerce
-          git -C /tmp/NeoBrutal-Commerce checkout 432c821b57cbbddfc7e0118c99d43d6fe9a798f2
+          git -C /tmp/NeoBrutal-Commerce checkout "$COMMERCE_SOURCE_SHA"
+          test "$(git -C /tmp/NeoBrutal-Commerce rev-parse HEAD)" = "$COMMERCE_SOURCE_SHA"
+          node -e "const p=require('/tmp/NeoBrutal-Commerce/package.json'); if(p.name!=='@neobrutal/commerce'||p.version!=='1.0.0'||p.private!==false) process.exit(1)"
 
       - name: Publish static runtime to /commerce
+        shell: bash
         run: |
+          set -euo pipefail
+          source=/tmp/NeoBrutal-Commerce
           rm -rf commerce
           mkdir -p commerce
-          cp /tmp/NeoBrutal-Commerce/index.html commerce/
-          cp -R /tmp/NeoBrutal-Commerce/src commerce/
-          cp -R /tmp/NeoBrutal-Commerce/demo commerce/
-          printf '%s\n' '432c821b57cbbddfc7e0118c99d43d6fe9a798f2' > commerce/.source-commit
+
+          cp "$source/index.html" "$source/components.html" "$source/component-explorer.css" "$source/component-explorer.js" commerce/
+          for dir in account cart checkout components demo order pricing product products src storefront; do
+            cp -R "$source/$dir" commerce/
+          done
+
+          printf '%s\n' "$COMMERCE_SOURCE_SHA" > commerce/.source-commit
           touch .nojekyll
 
+          required=(
+            index.html
+            products/index.html
+            product/soft/index.html
+            pricing/index.html
+            cart/index.html
+            checkout/index.html
+            order/success/index.html
+            account/index.html
+            account/license/demo-soft-team/index.html
+            components/index.html
+            components.html
+            component-explorer.css
+            component-explorer.js
+            demo/v10.html
+            demo/v10.css
+            demo/v10.js
+            src/index.css
+            storefront/store.css
+            storefront/store.js
+            storefront/routes.json
+            storefront/components.json
+            .source-commit
+          )
+
+          for file in "${required[@]}"; do
+            test -f "commerce/$file" || {
+              echo "Missing required Commerce archive asset: $file" >&2
+              exit 1
+            }
+          done
+
+          test "$(cat commerce/.source-commit)" = "$COMMERCE_SOURCE_SHA"
+          test ! -e commerce/tests
+          test ! -e commerce/scripts
+          test ! -e commerce/.github
+          test ! -e commerce/node_modules
+          if find commerce -type l -print -quit | grep -q .; then
+            echo 'Commerce archive must not contain symbolic links' >&2
+            exit 1
+          fi
+
+          echo "Validated ${#required[@]} required Commerce v1.0 archive assets."
+
       - name: Commit snapshot
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add commerce .nojekyll
@@ -41,5 +101,5 @@ jobs:
             echo 'Snapshot already current.'
             exit 0
           fi
-          git commit -m 'publish: archive NeoBrutal Commerce v0.2'
+          git commit -m 'publish: archive NeoBrutal Commerce v1.0.0'
           git push
